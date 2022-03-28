@@ -34,6 +34,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+//            BorderAndBackground()
             var list = ArrayList<Message>()
             list.add(Message("Azamat", "Salom man neshsiasuasdkgak hkvfiusg  shf shfs iag fi so gaosgf g sg asgf 8osgs isfg "))
             list.add(Message("Ogabek", "Man getdim"))
@@ -91,7 +92,8 @@ fun ItemMessage(message: Message) {
         .padding(8.dp)
         .clickable {
             isExpanded.value = !isExpanded.value
-        }.fillMaxWidth()) {
+        }
+        .fillMaxWidth()) {
         Image(
             painter = painterResource(id = R.drawable.ic_launcher_background),
             contentDescription = "",
@@ -113,7 +115,9 @@ fun ItemMessage(message: Message) {
             Spacer(modifier = Modifier.height(2.dp))
 
             Surface(color = surfaceColor, shape = MaterialTheme.shapes.medium, elevation = 1.dp,
-            modifier = Modifier.animateContentSize().padding(1.dp)) {
+            modifier = Modifier
+                .animateContentSize()
+                .padding(1.dp)) {
                 Text(text = message.describtion,
                     style = MaterialTheme.typography.subtitle2,
                     maxLines = if (isExpanded.value) Int.MAX_VALUE else 1
@@ -134,12 +138,12 @@ fun BorderAndBackground(){
         .background(Color.Red)
         .fillMaxHeight(0.5f)
         .fillMaxWidth()
-        .border(5.dp,Color.Magenta)
+        .border(5.dp, Color.Magenta)
         .padding(5.dp)
         .background(Color.Green)
         .border(5.dp, Color.Cyan)
         .background(Color.Red)
-        .border(5.dp,Color.Blue)
+        .border(5.dp, Color.Blue)
     ) {
 
     }
